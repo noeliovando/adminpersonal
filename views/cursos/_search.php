@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'asc' => ['desde' => SORT_ASC, 'hasta' => SORT_ASC],
     ]); ?>
 
     <?= $form->field($model, 'id_curso') ?>
@@ -25,9 +26,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'trabajador') ?>
 
-    <?php // echo $form->field($model, 'desde') ?>
+    <?= $form->field($model, 'desde') ?>
 
-    <?php // echo $form->field($model, 'hasta') ?>
+    <?= $form->field($model, 'hasta') ?>
 
     <?php // echo $form->field($model, 'horas') ?>
 

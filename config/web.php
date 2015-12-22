@@ -9,7 +9,12 @@ $config = [
     'components' => [
 		'urlManager' => [
           'showScriptName' => false,
-          'enablePrettyUrl' => false
+          'enablePrettyUrl' => true,
+            'rules' => array(
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ),
                   ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -22,7 +27,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -45,13 +50,15 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],
-    'params' => $params,
+
 ];
+
+
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'gii';
-    $config['modules']['debug'] = 'yii\gii\Module';
+    $config['modules']['debug'] = 'yii\giiModule';
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = 'yii\gii\Module';

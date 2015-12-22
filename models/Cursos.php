@@ -34,10 +34,11 @@ class Cursos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_curso', 'nombre_curso', 'localidad', 'costo', 'trabajador', 'desde', 'hasta', 'horas', 'empresa', 'nacional'], 'required'],
+            [['nombre_curso', 'localidad', 'costo', 'trabajador', 'desde', 'hasta', 'horas', 'empresa', 'nacional'], 'required'],
             [['id_curso'], 'integer'],
             [['desde', 'hasta'], 'safe'],
-            [['nombre_curso', 'localidad', 'costo', 'trabajador', 'empresa', 'nacional'], 'string', 'max' => 50],
+            [['nombre_curso', 'empresa'], 'string', 'max' => 200],
+            [['localidad', 'costo', 'trabajador', 'nacional'], 'string', 'max' => 50],
             [['horas'], 'string', 'max' => 25],
             [['id_curso'], 'unique']
         ];

@@ -61,13 +61,22 @@ class CursoSearch extends Cursos
             'hasta' => $this->hasta,
         ]);
 
-        $query->andFilterWhere(['like', 'nombre_curso', $this->nombre_curso])
-            ->andFilterWhere(['like', 'localidad', $this->localidad])
-            ->andFilterWhere(['like', 'costo', $this->costo])
-            ->andFilterWhere(['like', 'trabajador', $this->trabajador])
-            ->andFilterWhere(['like', 'horas', $this->horas])
-            ->andFilterWhere(['like', 'empresa', $this->empresa])
-            ->andFilterWhere(['like', 'nacional', $this->nacional]);
+        if(Yii::$app->user->identity->rol=='100')
+            $query->andFilterWhere(['like', 'nombre_curso', $this->nombre_curso])
+                ->andFilterWhere(['like', 'localidad', $this->localidad])
+                ->andFilterWhere(['like', 'costo', $this->costo])
+                ->andFilterWhere(['like', 'trabajador', $this->trabajador])
+                ->andFilterWhere(['like', 'horas', $this->horas])
+                ->andFilterWhere(['like', 'empresa', $this->empresa])
+                ->andFilterWhere(['like', 'nacional', $this->nacional]);
+        else
+            $query->andFilterWhere(['like', 'nombre_curso', $this->nombre_curso])
+                ->andFilterWhere(['like', 'localidad', $this->localidad])
+                ->andFilterWhere(['like', 'costo', $this->costo])
+                ->andFilterWhere(['like', 'trabajador', Yii::$app->user->identity->username])
+                ->andFilterWhere(['like', 'horas', $this->horas])
+                ->andFilterWhere(['like', 'empresa', $this->empresa])
+                ->andFilterWhere(['like', 'nacional', $this->nacional]);
 
         return $dataProvider;
     }
