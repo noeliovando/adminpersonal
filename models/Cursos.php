@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Cursos".
+ * This is the model class for table "cursos".
  *
  * @property integer $id_curso
  * @property string $nombre_curso
@@ -25,7 +25,7 @@ class Cursos extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Cursos';
+        return 'cursos';
     }
 
     /**
@@ -35,12 +35,9 @@ class Cursos extends \yii\db\ActiveRecord
     {
         return [
             [['nombre_curso', 'localidad', 'costo', 'trabajador', 'desde', 'hasta', 'horas', 'empresa', 'nacional'], 'required'],
-            [['id_curso'], 'integer'],
             [['desde', 'hasta'], 'safe'],
             [['nombre_curso', 'empresa'], 'string', 'max' => 200],
-            [['localidad', 'costo', 'trabajador', 'nacional'], 'string', 'max' => 50],
-            [['horas'], 'string', 'max' => 25],
-            [['id_curso'], 'unique']
+            [['localidad', 'costo', 'trabajador', 'horas', 'nacional'], 'string', 'max' => 25]
         ];
     }
 

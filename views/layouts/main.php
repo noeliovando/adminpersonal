@@ -27,8 +27,8 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => Html::img('@web/images/logo2.png', ['alt'=>'Gerencia de Operaciones del Dato']),
-                //'brandLabel' => 'Gerencia de Operaciones del Dato',
+                //'brandLabel' => Html::img('@web/images/logo2.png', ['alt'=>'Gerencia de Operaciones del Dato']),
+                'brandLabel' => 'Gerencia de Operaciones del Dato',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-default navbar-fixed-top',
@@ -39,9 +39,9 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'Inicio', 'url' => ['/site/index']],
                     ['label' => 'Sobre GODD', 'url' => ['/site/about']],
-                    ['label' => 'Mis Cursos', 'url' => ['/cursos'], 'visible' => !Yii::$app->user->isGuest &&Yii::$app->user->identity->rol>='10'],
-                    ['label' => 'Cursos de Equipo', 'url' => ['/curso-supervisado'], 'visible' => !Yii::$app->user->isGuest &&Yii::$app->user->identity->rol>='40'],
-                    ['label' => 'Trabajadores', 'url' => ['/user'], 'visible' => !Yii::$app->user->isGuest &&Yii::$app->user->identity->rol>='40'],
+                    ['label' => 'Mis Cursos', 'url' => ['/cursos'], 'visible' => !Yii::$app->user->isGuest &&Yii::$app->user->identity->rol>='1'],
+                    ['label' => 'Cursos de Equipo', 'url' => ['/curso-supervisado'], 'visible' => !Yii::$app->user->isGuest &&Yii::$app->user->identity->rol>='3'],
+                    ['label' => 'Trabajadores', 'url' => ['/user'], 'visible' => !Yii::$app->user->isGuest &&Yii::$app->user->identity->rol>='3'],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Iniciar Sesión', 'url' => ['/site/login']] :
                         ['label' => 'Bienvenid@ '. Yii::$app->user->identity->nombre, 'items' => [

@@ -20,7 +20,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '',
 			'enableCookieValidation' => true,
-            'cookieValidationKey' => 'your-validation-key',
+            'cookieValidationKey' => 'u783mmopsdjfo499dkfll4jdj',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -49,6 +49,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        
     ],
 
 ];

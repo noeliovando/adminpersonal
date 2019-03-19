@@ -61,7 +61,7 @@ class CursoSearch extends Cursos
             'hasta' => $this->hasta,
         ]);
 
-        if(Yii::$app->user->identity->rol=='100')
+        if(Yii::$app->user->identity->rol=='6')
             $query->andFilterWhere(['like', 'nombre_curso', $this->nombre_curso])
                 ->andFilterWhere(['like', 'localidad', $this->localidad])
                 ->andFilterWhere(['like', 'costo', $this->costo])

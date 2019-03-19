@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\jui\DatePicker;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Cursos */
@@ -22,9 +22,35 @@ use yii\jui\DatePicker;
 
     <?= $form->field($model, 'trabajador')->textInput(['readonly' => true, 'value' => Yii::$app->user->identity->username]) ?>
 
-    <?= $form->field($model, 'desde')->textInput() ?>
+    <?php //$form->field($model, 'desde')->textInput() ?>
+    <?php
+    echo $form->field($model, 'desde')->widget(DatePicker::className(),
+        [
+            'name' => 'desde',
+            'type' => DatePicker::TYPE_COMPONENT_PREPEND,
+            'value' => date('Y/m/d'),
+            'readonly' => true,
+            'options' => ['placeholder' => 'Seleccione una fecha ...'],
+            'pluginOptions' => [
+                'format' => 'yyyy/mm/dd',
+                'todayHighlight' => true
+            ]
+        ]);?>
 
-    <?= $form->field($model, 'hasta')->textInput() ?>
+    <?php // $form->field($model, 'hasta')->textInput() ?>
+    <?php
+    echo $form->field($model, 'hasta')->widget(DatePicker::className(),
+        [
+            'name' => 'hasta',
+            'type' => DatePicker::TYPE_COMPONENT_PREPEND,
+            'value' => date('Y/m/d'),
+            'readonly' => true,
+            'options' => ['placeholder' => 'Seleccione una fecha ...'],
+            'pluginOptions' => [
+                'format' => 'yyyy/mm/dd',
+                'todayHighlight' => true
+            ]
+        ]);?>
 
     <?= $form->field($model, 'horas')->textInput(['maxlength' => 25]) ?>
 

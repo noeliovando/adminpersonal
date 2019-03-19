@@ -11,7 +11,7 @@ $this->title = 'GODD';
         <h1>¡Bienvenidos!</h1>
 
         <p class="lead">Al servicio de los trabajadores</p>
-        <?php echo Html::img('@web/images/foto2.png', ['alt'=>'Gerencia de Operaciones del Dato'])?>
+        <?php echo Html::img('@web/images/logo3.png', ['alt'=>'Gerencia de Operaciones del Dato'])?>
 
 
 
